@@ -70,13 +70,24 @@ public class Phonebook {
     }
     
     public void deletePersonalInformation(String name) {
-        
         if (this.numberByName.containsKey(name)) {
+            Set<String> number = numberByName.get(name);
+            for (String s : number) {
+                this.nameByNumber.remove(s);
+            }
             this.numberByName.remove(name);
+        } else {
+            System.out.println("not found");
         }
         
         if (this.addressByName.containsKey(name)) {
             this.addressByName.remove(name);
+        } else {
+            System.out.println("not found");
         }
+    }
+    
+    public void searchFilteredListing(String name) {
+        
     }
 }

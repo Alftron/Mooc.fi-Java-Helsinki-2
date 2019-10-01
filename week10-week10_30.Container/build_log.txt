@@ -42,12 +42,12 @@
 init:
 
 -deps-jar-init:
-   [delete] Deleting: C:\WIP\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week9-week9_26.PhoneSearch\build\built-jar.properties
+   [delete] Deleting: C:\WIP\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week10-week10_30.Container\build\built-jar.properties
 
 deps-jar:
 
 -warn-already-built-jar:
-[propertyfile] Updating property file: C:\WIP\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week9-week9_26.PhoneSearch\build\built-jar.properties
+[propertyfile] Updating property file: C:\WIP\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week10-week10_30.Container\build\built-jar.properties
 
 -check-automatic-build:
 
@@ -64,7 +64,7 @@ deps-jar:
 -compile-depend:
 
 -do-compile:
-    [javac] Compiling 1 source file to C:\WIP\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week9-week9_26.PhoneSearch\build\classes
+    [javac] Compiling 1 source file to C:\WIP\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week10-week10_30.Container\build\classes
     [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
     [javac] 1 warning
 

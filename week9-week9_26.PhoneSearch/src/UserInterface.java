@@ -36,6 +36,7 @@ public class UserInterface {
                 deletePersonalInformation();
             } else if (command.equals("7")) {
                 // Filtered listing
+                searchFilteredListing();
             } else {
                 // Unrecognised command
                 System.out.println("Incorrect command!");
@@ -106,5 +107,11 @@ public class UserInterface {
         System.out.print("whose information: ");
         String name = input.nextLine();
         this.phonebook.deletePersonalInformation(name);
+    }
+    
+    public void searchFilteredListing() {
+        System.out.print("keyword (if empty all listed): ");
+        String name = input.nextLine();
+        this.phonebook.searchFilteredListing(name);
     }
 }
