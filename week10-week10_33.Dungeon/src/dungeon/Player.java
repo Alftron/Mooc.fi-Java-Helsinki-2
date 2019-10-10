@@ -11,7 +11,7 @@ public class Player {
     public Player(int x, int y, int maxX, int maxY) {
         //Player always starts at 0,0
         this.x = x;
-        this.y = x;
+        this.y = y;
         this.maxX = maxX;
         this.maxY = maxY;
     }
@@ -38,6 +38,11 @@ public class Player {
     
     public void moveLeft() {
         this.x--;
+    }
+    
+    public boolean sameSpace(Player other) {
+        // Returns if the two objects occupy the same space
+        return this.getX() == other.getX() && this.getY() == other.getY();
     }
     
     @Override

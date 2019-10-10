@@ -13,7 +13,6 @@ public class Dungeon {
     private int movesRemaining;
     private boolean vampiresMove;
     private List<Vampire> vampires;
-    private Random random;
     private Scanner input;
    
     private Player player;
@@ -60,6 +59,34 @@ public class Dungeon {
         }
         
         // Draw the game board
+        for (int y = 0; y < this.height; y++) {
+            for (int x = 0; x < this.length; x++) {
+                boolean characterPrinted = false;
+                // Tester object to compare places
+                Player tester = new Player(x, y, this.length - 1, this.height -1);
+                
+                // Test for player
+                if (player.sameSpace(tester)) {
+                    System.out.print("@");
+                    characterPrinted = true;
+                }
+                
+                // Test for vampire
+                for (Player p : this.vampires) {
+                    if (p.sameSpace(tester)) {
+                        System.out.print("v");
+                        characterPrinted = true;
+                        break;
+                    }
+                }
+                
+                // Nothing here so print dot
+                if (!characterPrinted) {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
     }
     
     public char[] getInput() {
@@ -69,10 +96,32 @@ public class Dungeon {
     
     public void addVampires(int num) {
         // Populates the vampires list with amount given by parameter
-        int randomX = random.nextInt(this.length);
-        int randomY = random.nextInt(this.height);
+        Random random = new Random();
+        for (int x = 1; x <= num; x++) {
+            // Keep looping to get a valid vampire
+            while (true) {
+                int randomX = random.nextInt(this.length);
+                int randomY = random.nextInt(this.height);
+                boolean occupiedSpace = false;
         
-        
+                Vampire newVampire = new Vampire(randomX, randomY, this.length -1, this.height -1);
+                
+                // Check for a player in the space
+                occupiedSpace = player.sameSpace(newVampire);
+                
+                // Check for a vampire in the space
+                for (Vampire v: this.vampires) {
+                    if (v.sameSpace(newVampire)) {
+                        occupiedSpace = true;
+                    }
+                }
+                
+                if (!occupiedSpace) {
+                    vampires.add(newVampire);
+                    break;
+                }   
+            }
+        }
     }
     
 }
