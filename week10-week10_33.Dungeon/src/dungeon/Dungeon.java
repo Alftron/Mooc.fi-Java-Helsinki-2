@@ -42,8 +42,8 @@ public class Dungeon {
         while (this.movesRemaining > 0) {
             drawGameScreen();
             char[] moves = getInput();
+            moveCharacters(moves);
             this.movesRemaining--;
-            System.out.println(this.movesRemaining);
         }
     }
     
@@ -87,11 +87,21 @@ public class Dungeon {
             }
             System.out.println();
         }
+        System.out.println();
     }
     
     public char[] getInput() {
         String in = input.nextLine();
         return in.toCharArray();
+    }
+    
+    public void moveCharacters(char[] moves) {
+        for (int x = 0; x < moves.length; x++) {
+            // Move the player once
+            player.moveCharacter(moves[x]);
+            
+            // Move all the vampires once
+        }
     }
     
     public void addVampires(int num) {

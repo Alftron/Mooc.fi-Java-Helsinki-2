@@ -24,6 +24,19 @@ public class Player {
         return this.y;
     }
     
+    public void moveCharacter(char direction) {
+        switch (direction) {
+            case 'w':
+                this.moveUp();
+            case 'd':
+                this.moveRight();
+            case 's':
+                this.moveDown();
+            case 'a':
+                this.moveLeft();
+        }
+    }
+    
     public void moveUp() {
         this.y--;
     }
