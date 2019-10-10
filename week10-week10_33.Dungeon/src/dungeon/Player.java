@@ -3,33 +3,46 @@ package dungeon;
 
 public class Player {
     
-    private int remainingMoves;
     private int x;
+    private int maxX;
     private int y;
+    private int maxY;
     
-    public Player(int moves) {
-        remainingMoves = moves;
+    public Player(int x, int y, int maxX, int maxY) {
         //Player always starts at 0,0
-        this.x = 0;
-        this.y = 0;
+        this.x = x;
+        this.y = x;
+        this.maxX = maxX;
+        this.maxY = maxY;
     }
     
-    public boolean playerSpace(int x, int y) {
-        // Returns true if the player co-ordinates match the parameters
-        return this.x == x && this.y == y;
+    public int getX() {
+        return this.x;
     }
     
-    public int getRemainingMoves() {
-        return remainingMoves;
+    public int getY() {
+        return this.y;
     }
     
-    public boolean movesRemaining() {
-        return remainingMoves > 0;
+    public void moveUp() {
+        this.y--;
+    }
+    
+    public void moveRight() {
+        this.x++;
+    }
+    
+    public void moveDown() {
+        this.y++;
+    }
+    
+    public void moveLeft() {
+        this.x--;
     }
     
     @Override
     public String toString() {
-        return "@ " + this.x + " " + this.y + " ";
+        return "@ " + this.getX() + " " + this.getY() + " ";
     }
     
 }
