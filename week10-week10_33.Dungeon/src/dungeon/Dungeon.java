@@ -39,6 +39,8 @@ public class Dungeon {
         // Main run loop of the game
         if (this.player.movesRemaining()) {
             drawGameScreen();
+            char[] moves = getInput();
+            piecesMove(moves);
         }
     }
     
@@ -73,16 +75,41 @@ public class Dungeon {
             }
             System.out.println();
         }
+        System.out.println();
+    }
+    
+    public char[] getInput() {
+        String in = input.nextLine();
+        return in.toCharArray();
+    }
+    
+    public void piecesMove(char[] moves) {
+        int numMoves = moves.length;
     }
     
     public void addVampires(int numVampires) {
         // Takes the number of vampires as a parameter and gets them ready
         Random randomNum = new Random();
+        // Store picked co-ordinates in an arraylist
+        List<Integer> occupied = new ArrayList<Integer>();
+        occupied.add(00);
         for (int x = 1; x <= numVampires; x++) {
-            // Need to find a way to check that the space isn't already occupied!
-            int randomX = randomNum.nextInt(this.length);
-            int randomY = randomNum.nextInt(this.height);
-            this.vampires.add(new Vampire(randomX,randomY));
+            /*
+            Keep looping to get an unoccupied space so we always get the right 
+            number of vampires
+            */
+            while (true) {
+                int randomX = randomNum.nextInt(this.length);
+                int randomY = randomNum.nextInt(this.height);
+                String strX = Integer.toString(randomX);
+                String strY = Integer.toString(randomY);
+                int coord = Integer.parseInt(strX + strY);
+                if (!occupied.contains(coord)) {
+                    occupied.add(coord);
+                    this.vampires.add(new Vampire(randomX, randomY));
+                    break;
+                }
+            }
         }
     }
     
