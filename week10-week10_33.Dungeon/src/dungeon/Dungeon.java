@@ -43,6 +43,7 @@ public class Dungeon {
             drawGameScreen();
             char[] moves = getInput();
             moveCharacters(moves);
+            processGame();
             this.movesRemaining--;
         }
     }
@@ -91,7 +92,7 @@ public class Dungeon {
     }
     
     public char[] getInput() {
-        String in = input.nextLine();
+        String in = input.nextLine().toLowerCase();
         return in.toCharArray();
     }
     
@@ -102,6 +103,10 @@ public class Dungeon {
             
             // Move all the vampires once
         }
+    }
+    
+    public void processGame() {
+        // Function to check the state of game pieces now everybody has moved
     }
     
     public void addVampires(int num) {

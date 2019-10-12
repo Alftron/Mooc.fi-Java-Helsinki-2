@@ -25,32 +25,46 @@ public class Player {
     }
     
     public void moveCharacter(char direction) {
+        System.out.println(this);
         switch (direction) {
             case 'w':
                 this.moveUp();
+                break;
             case 'd':
                 this.moveRight();
+                break;
             case 's':
                 this.moveDown();
+                break;
             case 'a':
                 this.moveLeft();
+                break;
         }
+        System.out.println(this);
     }
     
     public void moveUp() {
-        this.y--;
+        if (this.y > 0) {
+            this.y--;
+        }
     }
     
     public void moveRight() {
-        this.x++;
+        if (this.x < this.maxX) {
+            this.x++;
+        }
     }
     
     public void moveDown() {
-        this.y++;
+        if (this.y < this.maxY) {
+            this.y++;
+        }
     }
     
     public void moveLeft() {
-        this.x--;
+        if (this.x > 0) {
+            this.x--;
+        }
     }
     
     public boolean sameSpace(Player other) {
