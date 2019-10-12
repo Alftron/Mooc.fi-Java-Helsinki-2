@@ -139,4 +139,8 @@ public class Dungeon {
         }
     }
     
+    public void removeVampires() {
+        // Removes the vampires that need to be destroyed
+    }
+    
 }
