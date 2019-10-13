@@ -43,7 +43,15 @@ public class Dungeon {
             drawGameScreen();
             char[] moves = getInput();
             moveCharacters(moves);
+            if (this.vampires.size() == 0) {
+                System.out.println("YOU WIN");
+                break;
+            }
             this.movesRemaining--;
+        }
+        
+        if (this.vampires.size() > 0) {
+            System.out.println("YOU LOSE");
         }
     }
     
@@ -59,6 +67,7 @@ public class Dungeon {
         }
         
         // Draw the game board
+        System.out.println();
         for (int y = 0; y < this.height; y++) {
             for (int x = 0; x < this.length; x++) {
                 boolean characterPrinted = false;
@@ -91,8 +100,11 @@ public class Dungeon {
     }
     
     public char[] getInput() {
-        String in = input.nextLine().toLowerCase();
-        return in.toCharArray();
+        String in = "";
+        if (input.hasNextLine()) {
+            in = input.nextLine();
+        }
+        return in.toLowerCase().toCharArray();
     }
     
     public void moveCharacters(char[] moves) {
@@ -100,13 +112,13 @@ public class Dungeon {
             // Move the player once
             player.moveCharacter(moves[x]);
             
-            /*
             // Move all the vampires once ensuring we won't bump into another vampire
-            for (Vampire v : this.vampires) {
-                v.moveCharacter();
+            if (this.vampiresMove) {
+                for (Vampire v : this.vampires) {
+                    v.moveVampires(this.vampires);
+                }
             }
-            */
-            
+
             // Check if the player has touched any vampires and destroy them if so
             for (int v = 0; v < this.vampires.size(); v++) {
                 if (this.player.sameSpace(this.vampires.get(v))) {

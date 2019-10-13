@@ -24,6 +24,14 @@ public class Player {
         return this.y;
     }
     
+    public void setX(int x) {
+        this.x = x;
+    }
+    
+    public void setY(int y) {
+        this.y = y;
+    }
+    
     public void moveCharacter(char direction) {
         switch (direction) {
             case 'w':
@@ -68,6 +76,15 @@ public class Player {
     public boolean sameSpace(Player other) {
         // Returns if the two objects occupy the same space
         return this.getX() == other.getX() && this.getY() == other.getY();
+    }
+    
+    public boolean sameSpaceAfterMove(int dx, int dy, Player other) {
+        // Returns if the two objects WILL occupy the same space
+        if (this.x + dx == other.getX() && this.y + dy == other.getY()) {
+            return true;
+        }
+        
+        return false;    
     }
     
     @Override
