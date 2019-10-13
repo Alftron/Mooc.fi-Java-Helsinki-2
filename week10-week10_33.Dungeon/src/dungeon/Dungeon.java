@@ -100,12 +100,21 @@ public class Dungeon {
             // Move the player once
             player.moveCharacter(moves[x]);
             
+            /*
             // Move all the vampires once ensuring we won't bump into another vampire
             for (Vampire v : this.vampires) {
                 v.moveCharacter();
             }
+            */
             
             // Check if the player has touched any vampires and destroy them if so
+            for (int v = 0; v < this.vampires.size(); v++) {
+                Vampire newVampire = this.vampires.get(x);
+                if (this.player.sameSpace(newVampire)) {
+                    // Player is touching a vampire so remove it!
+                    killVampire(v);
+                }
+            }
         }
     }
     
@@ -139,8 +148,9 @@ public class Dungeon {
         }
     }
     
-    public void killVampire() {
-        
+    public void killVampire(int whichVamp) {
+        // Takes an index number to remove from the LinkedList of vampires
+        this.vampires.remove(whichVamp);
     }
     
 }
