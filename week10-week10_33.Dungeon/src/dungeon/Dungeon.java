@@ -109,8 +109,7 @@ public class Dungeon {
             
             // Check if the player has touched any vampires and destroy them if so
             for (int v = 0; v < this.vampires.size(); v++) {
-                Vampire newVampire = this.vampires.get(x);
-                if (this.player.sameSpace(newVampire)) {
+                if (this.player.sameSpace(this.vampires.get(v))) {
                     // Player is touching a vampire so remove it!
                     killVampire(v);
                 }
