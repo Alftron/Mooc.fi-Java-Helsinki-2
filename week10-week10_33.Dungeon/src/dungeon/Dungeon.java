@@ -43,7 +43,6 @@ public class Dungeon {
             drawGameScreen();
             char[] moves = getInput();
             moveCharacters(moves);
-            processGame();
             this.movesRemaining--;
         }
     }
@@ -101,12 +100,13 @@ public class Dungeon {
             // Move the player once
             player.moveCharacter(moves[x]);
             
-            // Move all the vampires once
+            // Move all the vampires once ensuring we won't bump into another vampire
+            for (Vampire v : this.vampires) {
+                v.moveCharacter();
+            }
+            
+            // Check if the player has touched any vampires and destroy them if so
         }
-    }
-    
-    public void processGame() {
-        // Function to check the state of game pieces now everybody has moved
     }
     
     public void addVampires(int num) {
@@ -139,8 +139,8 @@ public class Dungeon {
         }
     }
     
-    public void removeVampires() {
-        // Removes the vampires that need to be destroyed
+    public void killVampire() {
+        
     }
     
 }

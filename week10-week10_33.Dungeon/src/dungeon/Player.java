@@ -25,7 +25,6 @@ public class Player {
     }
     
     public void moveCharacter(char direction) {
-        System.out.println(this);
         switch (direction) {
             case 'w':
                 this.moveUp();
@@ -40,7 +39,6 @@ public class Player {
                 this.moveLeft();
                 break;
         }
-        System.out.println(this);
     }
     
     public void moveUp() {
