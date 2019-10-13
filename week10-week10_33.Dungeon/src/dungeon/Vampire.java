@@ -75,7 +75,7 @@ public class Vampire extends Player{
     
     @Override
     public String toString() {
-        return "v " + this.getX() + " " + this.getY() + " ";
+        return "v " + this.getX() + " " + this.getY();
     }
     
 }

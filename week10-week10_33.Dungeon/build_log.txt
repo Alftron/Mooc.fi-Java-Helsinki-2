@@ -70,23 +70,16 @@ deps-jar:
 compile:
 
 -pre-pre-compile-test:
-    [mkdir] Created dir: D:\Programming\Java\Projects\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week10-week10_33.Dungeon\build\test\classes
 
 -pre-compile-test:
 
 -compile-test-depend:
 
 -do-compile-test:
-    [javac] Compiling 1 source file to D:\Programming\Java\Projects\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week10-week10_33.Dungeon\build\test\classes
-    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.6
-    [javac] Note: D:\Programming\Java\Projects\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week10-week10_33.Dungeon\test\DungeonTest.java uses unchecked or unsafe operations.
-    [javac] Note: Recompile with -Xlint:unchecked for details.
-    [javac] 1 warning
-     [copy] Copying 1 file to D:\Programming\Java\Projects\TMCProjects\mooc-2013-OOProgrammingWithJava-PART2\week10-week10_33.Dungeon\build\test\classes
 
 -post-compile-test:
 
 compile-test:
 
 BUILD SUCCESSFUL
-Total time: 2 seconds
+Total time: 0 seconds
