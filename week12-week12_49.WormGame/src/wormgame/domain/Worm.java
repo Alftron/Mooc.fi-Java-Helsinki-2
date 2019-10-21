@@ -74,11 +74,25 @@ public class Worm {
     }
     
     public boolean runsInto(Piece piece) {
+        for (int x = 0; x < getLength(); x++) {
+            if (worm.get(x).getX() == piece.getX() && worm.get(x).getY() == piece.getY()) {
+                return true;
+            }
+        }
         return false;
     }
     
     public boolean runsIntoItself() {
+        for (int x = 0; x < getLength() - 1; x++) {
+            if (worm.get(x).getX() == getHead().getX() && worm.get(x).getY() == getHead().getY()) {
+                return true;
+            }
+        }
         return false;
+    }
+    
+    public Piece getHead() {
+        return worm.get(getLength() - 1);
     }
     
 }
